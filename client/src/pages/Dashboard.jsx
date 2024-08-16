@@ -92,7 +92,7 @@ const Dashboard = () => {
                                             </select>
                                         </div>
                                         <div className="mr-4 p-3 text-center">
-                                            <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">8.9</span>
+                                            <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">8.5</span>
                                             <span className="text-sm text-blueGray-400">CPI</span>
                                         </div>
                                     </div>
@@ -107,7 +107,7 @@ const Dashboard = () => {
                                     Jabalpur, Madhya Pradesh
                                 </div>
                                 <div className="mb-2 text-blueGray-600 mt-10">
-                                    <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>Batch - 2022
+                                    <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>Batch - B.Tech. 2022
                                 </div>
                                 <div className="mb-2 text-blueGray-600">
                                     <i className="fas fa-university mr-2 text-lg text-blueGray-400"></i>Computer Science and Engineering
