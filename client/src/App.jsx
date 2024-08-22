@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 import {
   createBrowserRouter,
   RouterProvider,
   Outlet,
-  Navigate
+  Navigate,
+  Route,
+  BrowserRouter
 } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -22,17 +24,16 @@ import VisitorsHostel from './pages/VisitorsHostel';
 import Dashboard from './pages/Dashboard';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import { DarkModeProvider } from './context/DarkModeContext';
 
 const Layout = () => {
-
   return (
     <>
       <Navbar />
       <Outlet />
-      <Footer />
+      {/* <Footer />  */}
     </>
-  )
-
+  );
 };
 
 const router = createBrowserRouter([
@@ -40,59 +41,22 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
-      {
-        path: "/",
-        element: <Dashboard />,
-      },
-      {
-        path: "/academics",
-        element: <Academics />,
-      },
-      {
-        path: "/gymkhana",
-        element: <Gymkhana />,
-      },
-      {
-        path: "/hostelmanagement",
-        element: <HostelManagement />,
-      },
-      {
-        path: "/placementcell",
-        element: <PlacementCell />,
-      },
-      {
-        path: "/programmeandcurriculum",
-        element: <ProgrammeAndCurriculum />,
-      },
-      {
-        path: "/messmanagement",
-        element: <MessManagement />,
-      },
-      {
-        path: "/scholarshipportal",
-        element: <ScholarshipPortal />,
-      },
-      {
-        path: "/healthcarecenter",
-        element: <HealthcareCenter />,
-      },
-      {
-        path: "/otheracademicprocedure",
-        element: <OtherAcademicProcedure />,
-      },
-      {
-        path: "/visitorshostel",
-        element: <VisitorsHostel />,
-      },
-      {
-        path: "/complaintsystem",
-        element: <ComplaintSystem />,
-      },
-      {
-        path: "/departmentportal",
-        element: <DepartmentPortal />,
-      },
-
+      { path: "/", element: <Dashboard /> },
+      { path: "/academics", element: <Academics /> },
+      { path: "/gymkhana", element: <Gymkhana /> },
+      { path: "/hostelmanagement", element: <HostelManagement /> },
+      { path: "/placementcell", element: <PlacementCell /> },
+      { path: "/programmeandcurriculum", element: <ProgrammeAndCurriculum /> },
+      { path: "/messmanagement", element: <MessManagement /> },
+      { path: "/scholarshipportal", element: <ScholarshipPortal /> },
+      { path: "/healthcarecenter", element: <HealthcareCenter /> },
+      { path: "/otheracademicprocedure", element: <OtherAcademicProcedure /> },
+      { path: "/visitorshostel", element: <VisitorsHostel /> },
+      { path: "/complaintsystem", element: <ComplaintSystem /> },
+      { path: "/departmentportal", element: <DepartmentPortal /> },
+      // Redirect if a user is already authenticated and tries to access sign-in or sign-up pages
+      // Example: { path: "/sign-in", element: <Navigate to="/" /> },
+      // Example: { path: "/sign-up", element: <Navigate to="/" /> },
     ]
   },
   {
@@ -103,15 +67,19 @@ const router = createBrowserRouter([
     path: "/sign-in",
     element: <SignIn />
   },
+  // Handle undefined routes
+  {
+    path: "*",
+    element: <div>Page not found</div> // Consider creating a custom 404 page component
+  }
 ]);
-
 
 const App = () => {
   return (
-    <div className=''>
+    <DarkModeProvider>
       <RouterProvider router={router} />
-    </div>
-  )
-}
+    </DarkModeProvider>
+  );
+};
 
-export default App
+export default App;
