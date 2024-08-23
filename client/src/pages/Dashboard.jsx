@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { DarkModeContext } from '../context/DarkModeContext.jsx'; // Update the path as needed
+import { DarkModeContext } from '../context/DarkModeContext.jsx';
 import img1 from '../assets/iiit1.jpg';
 import profilePic from '../assets/man.png';
 import { FaGraduationCap, FaBook, FaUtensils, FaHotel, FaHospital, FaUniversity, FaHandsHelping, FaRegNewspaper, FaBusinessTime, FaUsers, FaChalkboardTeacher, FaRegQuestionCircle } from 'react-icons/fa';
@@ -23,7 +23,6 @@ const modules = [
 const notifications = [
     { title: 'Hackbyte Event', description: 'Hackbyte event by BitByte Club will be organised in CR102 -by PRIYANSH MEHTA' },
     { title: 'Bitbyte session', description: 'A session by BitByte Club will be organised in CR101 -by PRIYANSH MEHTA' },
-    // Add more notifications as needed
 ];
 
 const announcements = [
@@ -31,7 +30,6 @@ const announcements = [
     { title: 'Course Announcement', description: 'course -by Prof. Atul Gupta' },
     { title: 'Test Announcement', description: 'test announcement -by Prakash Kumar' },
     { title: 'Healthcare Announcement', description: 'New PHC Doctor -by Prakash Kumar' },
-    // Add more announcements as needed
 ];
 
 const nextNotification = () => {
@@ -73,9 +71,7 @@ const Dashboard = () => {
     }, []);
 
     const handleSignOut = () => {
-        // Clear user info from local storage
         localStorage.removeItem('userInfo');
-        // Redirect to sign-in page
         navigate('/sign-in');
     };
 
@@ -132,7 +128,7 @@ const Dashboard = () => {
                                     <div className="relative">
                                         <img
                                             alt="Profile"
-                                            src={profilePic} // Use the imported image here
+                                            src={profilePic} 
                                             className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]"
                                         />
                                     </div>

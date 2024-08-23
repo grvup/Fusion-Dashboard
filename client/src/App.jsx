@@ -54,9 +54,6 @@ const router = createBrowserRouter([
       { path: "/visitorshostel", element: <VisitorsHostel /> },
       { path: "/complaintsystem", element: <ComplaintSystem /> },
       { path: "/departmentportal", element: <DepartmentPortal /> },
-      // Redirect if a user is already authenticated and tries to access sign-in or sign-up pages
-      // Example: { path: "/sign-in", element: <Navigate to="/" /> },
-      // Example: { path: "/sign-up", element: <Navigate to="/" /> },
     ]
   },
   {
@@ -67,10 +64,9 @@ const router = createBrowserRouter([
     path: "/sign-in",
     element: <SignIn />
   },
-  // Handle undefined routes
   {
     path: "*",
-    element: <div>Page not found</div> // Consider creating a custom 404 page component
+    element: <div>Page not found</div>
   }
 ]);
 
