@@ -6,7 +6,6 @@ const DarkModeProvider = ({ children }) => {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect(() => {
-        // Load dark mode preference from local storage
         const storedMode = localStorage.getItem('darkMode');
         if (storedMode) {
             setIsDarkMode(JSON.parse(storedMode));
@@ -14,7 +13,6 @@ const DarkModeProvider = ({ children }) => {
     }, []);
 
     useEffect(() => {
-        // Save dark mode preference to local storage
         localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
         document.documentElement.classList.toggle('dark', isDarkMode);
     }, [isDarkMode]);
